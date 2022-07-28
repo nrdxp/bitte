@@ -1724,11 +1724,11 @@
     "ops-lib_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1649848729,
-        "narHash": "sha256-5zN9gpn+DwdB67bcHfDD8zgMnR0EaJd2JVNMyL6J1N0=",
+        "lastModified": 1658758850,
+        "narHash": "sha256-D2F+CAj1mW2Z6UH6YenJpFEvd1/Tc3sycDiSl47kR68=",
         "owner": "input-output-hk",
         "repo": "ops-lib",
-        "rev": "517c747f4d5d56e626f62618803bfccb09f14019",
+        "rev": "d58917a5883448004b4c8a234b360e62fef5505e",
         "type": "github"
       },
       "original": {

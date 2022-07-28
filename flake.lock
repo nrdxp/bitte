@@ -457,6 +457,29 @@
         "type": "github"
       }
     },
+    "devshell_7": {
+      "inputs": {
+        "flake-utils": "flake-utils_10",
+        "nixpkgs": [
+          "tullia",
+          "std",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1650900878,
+        "narHash": "sha256-qhNncMBSa9STnhiLfELEQpYC1L4GrYHNIzyCZ/pilsI=",
+        "owner": "numtide",
+        "repo": "devshell",
+        "rev": "d97df53b5ddaa1cfbea7cddbd207eb2634304733",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "devshell",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": "nixpkgs_5",
@@ -578,6 +601,21 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_10": {
+      "locked": {
+        "lastModified": 1642700792,
+        "narHash": "sha256-XqHrk7hFb+zBvRg6Ghl+AZDq03ov6OshJLiSWOoX5es=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "846b2ae0fc4cc943637d3d1def4454213e203cba",
         "type": "github"
       },
       "original": {
@@ -1489,6 +1527,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_27": {
+      "locked": {
+        "lastModified": 1650469885,
+        "narHash": "sha256-BuILRZ6pzMnGey8/irbjGq1oo3vIvZa1pitSdZCmIXA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "df78cc4e2a46fca75d14508a5d2ed3494add28ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_3": {
       "locked": {
         "lastModified": 1627969475,
@@ -1821,6 +1875,7 @@
         "ragenix": "ragenix_3",
         "std": "std",
         "terranix": "terranix_2",
+        "tullia": "tullia",
         "utils": "utils_10"
       }
     },
@@ -1993,6 +2048,26 @@
         "type": "github"
       }
     },
+    "std_2": {
+      "inputs": {
+        "devshell": "devshell_7",
+        "nixpkgs": "nixpkgs_27",
+        "yants": "yants_3"
+      },
+      "locked": {
+        "lastModified": 1652784712,
+        "narHash": "sha256-ofwGapSWqzUVgIxwwmjlrOVogfjV4yd6WpY8fNfMc2o=",
+        "owner": "divnix",
+        "repo": "std",
+        "rev": "3667d2d868352b0bf47c83440da48bee9f2fab47",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "std",
+        "type": "github"
+      }
+    },
     "stdlib": {
       "locked": {
         "lastModified": 1590026685,
@@ -2145,6 +2220,30 @@
       "original": {
         "owner": "terranix",
         "repo": "terranix",
+        "type": "github"
+      }
+    },
+    "tullia": {
+      "inputs": {
+        "nix2container": [
+          "n2c"
+        ],
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "std": "std_2"
+      },
+      "locked": {
+        "lastModified": 1658764936,
+        "narHash": "sha256-iQViRtCk1UqGmsSAb/BmLTHDa59EYcpdtztw75vBhmQ=",
+        "owner": "input-output-hk",
+        "repo": "tullia",
+        "rev": "d7f22db07208a2c8e39c3116335c0c44a594473f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "tullia",
         "type": "github"
       }
     },
@@ -2336,6 +2435,28 @@
     "yants_2": {
       "inputs": {
         "nixpkgs": [
+          "std",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1645126146,
+        "narHash": "sha256-XQ1eg4gzXoc7Tl8iXak1uCt3KnsTyxqPtLE+vOoDnrQ=",
+        "owner": "divnix",
+        "repo": "yants",
+        "rev": "77df2be1b3cce9f571c6cf451f786b266a6869cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "yants",
+        "type": "github"
+      }
+    },
+    "yants_3": {
+      "inputs": {
+        "nixpkgs": [
+          "tullia",
           "std",
           "nixpkgs"
         ]

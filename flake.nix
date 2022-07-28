@@ -29,7 +29,8 @@
       inputs = {
         # Tullia has nixpkgs 22.05 dependencies (ex: stdenv:shellDryRun)
         nixpkgs.follows = "nixpkgs-unstable";
-        nix2container.follows = "n2c";
+        # Use tullia flake n2c pin to avoid buildImage error
+        # nix2container.follows = "n2c";
       };
     };
     # Vector >= 0.20.0 versions require nomad-follower watch-config format fix

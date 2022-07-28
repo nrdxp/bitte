@@ -459,7 +459,7 @@
     },
     "devshell_7": {
       "inputs": {
-        "flake-utils": "flake-utils_10",
+        "flake-utils": "flake-utils_11",
         "nixpkgs": [
           "tullia",
           "std",
@@ -610,6 +610,21 @@
       }
     },
     "flake-utils_10": {
+      "locked": {
+        "lastModified": 1638122382,
+        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_11": {
       "locked": {
         "lastModified": 1642700792,
         "narHash": "sha256-XqHrk7hFb+zBvRg6Ghl+AZDq03ov6OshJLiSWOoX5es=",
@@ -1024,6 +1039,26 @@
         "owner": "kreisys",
         "ref": "goodnix-maybe-dont-functor",
         "repo": "nix",
+        "type": "github"
+      }
+    },
+    "nix2container": {
+      "inputs": {
+        "flake-utils": "flake-utils_10",
+        "nixpkgs": "nixpkgs_27"
+      },
+      "locked": {
+        "lastModified": 1653427219,
+        "narHash": "sha256-q6MzrIZq1BBFxYN+UQjW60LpQJXV6RIIUmO8gKRyMqg=",
+        "owner": "nlewo",
+        "repo": "nix2container",
+        "rev": "11a0e14c2468720f42ca8dec3b82862abf96c837",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nlewo",
+        "ref": "init-nix-db",
+        "repo": "nix2container",
         "type": "github"
       }
     },
@@ -1528,6 +1563,21 @@
       }
     },
     "nixpkgs_27": {
+      "locked": {
+        "lastModified": 1642451377,
+        "narHash": "sha256-hvAuYDUN8XIrcQKE6wDw4LjTCcwrTp2B1i1i/5vfDMQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e5b47c5c21336e3fdd887d24c7e34363fa09c6d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_28": {
       "locked": {
         "lastModified": 1650469885,
         "narHash": "sha256-BuILRZ6pzMnGey8/irbjGq1oo3vIvZa1pitSdZCmIXA=",
@@ -2051,7 +2101,7 @@
     "std_2": {
       "inputs": {
         "devshell": "devshell_7",
-        "nixpkgs": "nixpkgs_27",
+        "nixpkgs": "nixpkgs_28",
         "yants": "yants_3"
       },
       "locked": {
@@ -2225,9 +2275,7 @@
     },
     "tullia": {
       "inputs": {
-        "nix2container": [
-          "n2c"
-        ],
+        "nix2container": "nix2container",
         "nixpkgs": [
           "nixpkgs-unstable"
         ],

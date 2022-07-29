@@ -4,7 +4,7 @@
     io = ''
       _lib: github: {
         #repo: "input-output-hk/bitte"
-        push: {}
+        push: #branch: "bitte-tests"
       }
     '';
   };

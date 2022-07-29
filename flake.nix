@@ -148,6 +148,12 @@
           packages.bitte = unstablePackages.callPackage ./cli/package.nix {inherit toolchain;};
           defaultPackage = packages.bitte;
 
+          devShell = unstablePackages.mkShell {
+            buildInputs = with unstablePackages; [
+              hello
+            ];
+          };
+
           hydraJobs = let
             constituents = {
               inherit

@@ -26,12 +26,17 @@
       else "."
     );
 in {
-  lint = {...}: {
+  last = {...}: {
     imports = [common];
 
     config = {
+      after = ["build"];
+
       command.text = ''
-        nix develop -L -c lint
+        echo "Testing followup step"
+        nix develop -L -c hello
+        echo
+        echo "Done..."
       '';
 
       preset.github-ci.clone = true;
@@ -45,8 +50,6 @@ in {
     imports = [common];
 
     config = {
-      after = ["lint"];
-
       command.text = "nix build -L ${flakeUrl args}";
 
       env.NIX_CONFIG = ''

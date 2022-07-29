@@ -48,7 +48,7 @@ in {
     imports = [common];
 
     config = {
-      before = ["last"];
+      after = ["last"];
 
       command.text = "nix build -L ${flakeUrl args}";
 

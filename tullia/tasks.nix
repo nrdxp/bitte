@@ -56,8 +56,8 @@ in {
         extra-system-features = kvm
       '';
 
-      memory = 1024 * 3;
-      nomad.resources.cpu = 2100;
+      memory = 1024 * 24;
+      nomad.resources.cpu = 10000;
     };
   };
 }

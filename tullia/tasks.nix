@@ -30,8 +30,6 @@ in {
     imports = [common];
 
     config = {
-      after = ["build"];
-
       command.text = ''
         echo "Testing followup step"
         nix develop -L -c hello
@@ -50,6 +48,8 @@ in {
     imports = [common];
 
     config = {
+      before = ["last"];
+
       command.text = "nix build -L ${flakeUrl args}";
 
       env.NIX_CONFIG = ''

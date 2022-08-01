@@ -41,6 +41,7 @@ in {
 
       memory = 1024 * 2;
       nomad.resources.cpu = 1000;
+      # Test trigger world repo
     };
   };
 

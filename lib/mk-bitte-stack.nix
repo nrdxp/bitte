@@ -194,8 +194,9 @@ assert lib.asserts.assertMsg (pkgs == null) (lib.warn ''
       flatten
     ];
   clusters' = clusters;
-in
-  rec {
+
+in lib.foldl' (acc: s: lib.recursiveUpdate acc s) {} [
+  (rec {
     inherit envs;
 
     clusters =
@@ -220,28 +221,29 @@ in
 
     nixosConfigurations = mkNixosConfigurations clusters;
 
-    hydraJobs.x86_64-linux = let
+    checks.x86_64-linux = let
       clusterName = builtins.head (builtins.attrNames clusters);
-      nixosConfigurations' =
-        lib.mapAttrs (_: {config, ...}: config.system.build.toplevel)
-        nixosConfigurations;
-      tfWorkspaces =
-        lib.mapAttrs' (n: v: lib.nameValuePair "tf-${n}-plan" v.plan) clusters.${clusterName}.tf;
-      required = { required = (pkgs.mkRequired (nixosConfigurations' // tfWorkspaces)); };
-    in
-      lib.foldl' (acc: s: lib.recursiveUpdate acc s) {} [
-        nixosConfigurations'
-        tfWorkspaces
-        required
-      ];
-  }
-  // (mkDeploy {inherit self deploySshKey;})
-  // lib.optionalAttrs (jobs != null) rec {
+      tfWorkspaces = lib.mapAttrs' (n: v: lib.nameValuePair "tf-${n}-plan" v.plan) clusters.${clusterName}.tf;
+    in tfWorkspaces;
+
+    # hydraJobs.x86_64-linux = let
+    #   nixosConfigurations' =
+    #     lib.mapAttrs (_: {config, ...}: config.system.build.toplevel)
+    #     nixosConfigurations;
+    #   required = {required = pkgs.mkRequired nixosConfigurations'; };
+    # in
+    #   lib.foldl' (acc: s: lib.recursiveUpdate acc s) {} [
+    #     nixosConfigurations'
+    #     required
+    #   ];
+  })
+  (mkDeploy {inherit self deploySshKey;})
+  (lib.optionalAttrs (jobs != null) rec {
     nomadJobs = recursiveCallPackage jobs extended-pkgs.callPackage;
     consulTemplates =
       pkgs.callPackage buildConsulTemplates {inherit nomadJobs;};
-  }
-  // lib.optionalAttrs (docker != null) rec {
+  })
+  (lib.optionalAttrs (docker != null) rec {
     dockerImages = let
       images = recursiveCallPackage docker extended-pkgs.callPackages;
     in
@@ -250,4 +252,5 @@ in
       pkgs.callPackage push-docker-images' {inherit dockerImages;};
     load-docker-images =
       pkgs.callPackage load-docker-images' {inherit dockerImages;};
-  }
+  })
+]
